@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import { cn } from "@/lib/utils";
+import "@fontsource/inter";
+import "@fontsource-variable/manrope";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
