@@ -4,8 +4,7 @@ import { z } from "zod";
 import prisma from "@/lib/prisma";
 import { quoteFormSchema } from "@/lib/validators/quote";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-06-20",
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "sk_test_dummy", {
   typescript: true,
 });
 

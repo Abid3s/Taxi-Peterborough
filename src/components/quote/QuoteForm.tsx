@@ -45,7 +45,7 @@ export function QuoteForm({
   currentQuote,
 }: QuoteFormProps) {
   const form = useForm<QuoteFormValues>({
-    resolver: zodResolver(quoteFormSchema),
+    resolver: zodResolver(quoteFormSchema) as any,
     defaultValues: {
       direction: "to_airport",
       pickupPostcode: "",
