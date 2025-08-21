@@ -1,0 +1,114 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Airport {
+  id               String        @id @default(cuid())
+  code             String        @unique
+  name             String
+  pricingRules     PricingRule[]
+  partnerCoverage  Partner[]     @relation("AirportCoverage")
+  bookingsFrom     Booking[]     @relation("DropoffAirport")
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+// The blueprint mentions Zone but it's not currently related to other models.
+model Zone {
+  id               String   @id @default(cuid())
+  name             String
+  postcodePrefixes String[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model VehicleType {
+  id           String        @id @default(cuid())
+  name         String        @unique
+  pax          Int
+  bags         Int
+  pricingRules PricingRule[]
+  partners     Partner[]     @relation("PartnerVehicles")
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model PricingRule {
+  id              String      @id @default(cuid())
+  airport         Airport     @relation(fields: [airportId], references: [id])
+  airportId       String
+  vehicleType     VehicleType @relation(fields: [vehicleTypeId], references: [id])
+  vehicleTypeId   String
+  baseFare        Decimal
+  perMile         Decimal
+  nightPct        Decimal
+  weekendPct      Decimal
+  meetAndGreetFee Decimal
+  childSeatFee    Decimal
+  extraStopFee    Decimal
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Partner {
+  id               String        @id @default(cuid())
+  name             String
+  email            String        @unique
+  phone            String
+  branding         Json? // {logoUrl, colour}
+  coverageAirports Airport[]     @relation("AirportCoverage")
+  vehicles         VehicleType[] @relation("PartnerVehicles")
+  bookings         Booking[]
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+}
+
+enum BookingStatus {
+  Draft
+  Authorised
+  Allocated
+  Captured
+  Completed
+  Refunded
+  Declined
+}
+
+model Booking {
+  id                    String        @id @default(cuid())
+  status                BookingStatus @default(Draft)
+  passengerName         String
+  passengerPhone        String
+  passengerEmail        String
+  pickupAddress         String
+  dropoffAirport        Airport       @relation("DropoffAirport", fields: [dropoffAirportId], references: [id])
+  dropoffAirportId      String
+  flightNo              String?
+  dateTime              DateTime
+  pax                   Int
+  bags                  Int
+  options               Json? // { meetAndGreet: bool, childSeat: int, extraStop: bool }
+  distanceMiles         Decimal
+  quote                 Decimal
+  fees                  Decimal
+  stripePaymentIntentId String?       @unique
+  partner               Partner?      @relation(fields: [partnerId], references: [id])
+  partnerId             String?
+  pdfUrl                String?
+  createdAt             DateTime      @default(now())
+  updatedAt             DateTime      @updatedAt
+}
+
+model Lead {
+  id              String   @id @default(cuid())
+  source          String?
+  keywords        String?
+  gclid           String?
+  landingPage     String?
+  conversionEvent String?
+  createdAt       DateTime @default(now())
+}
