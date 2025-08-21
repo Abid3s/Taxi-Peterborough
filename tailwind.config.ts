@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Clash Display', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        'display': ['Manrope Variable', 'system-ui', 'sans-serif'],
       },
       colors: {
         background: "hsl(var(--background))",
