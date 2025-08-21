@@ -1,0 +1,18 @@
+{
+  "airports": ["LHR","LGW","LTN","STN","EMA","BHX"],
+  "vehicle": {
+    "saloon":   { "baseFare": 79,  "perMile": 0.99, "pax": 4, "bags": 2 },
+    "estate":   { "baseFare": 89,  "perMile": 1.05, "pax": 4, "bags": 3 },
+    "mpv":      { "baseFare": 109, "perMile": 1.19, "pax": 6, "bags": 4 },
+    "eight":    { "baseFare": 129, "perMile": 1.35, "pax": 8, "bags": 6 }
+  },
+  "surcharges": {
+    "nightPct": 0.10,
+    "nightHours": [22, 5],
+    "weekendPct": 0.08,
+    "meetAndGreetFee": 12,
+    "childSeatFee": 6,
+    "extraStopFee": 12
+  },
+  "guards": { "maxPctAbove": 0.20, "maxPctBelow": 0.20 }
+}
