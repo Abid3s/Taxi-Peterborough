@@ -3,8 +3,7 @@ import Stripe from "stripe";
 import prisma from "@/lib/prisma";
 import { z } from "zod";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-06-20",
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "sk_test_dummy", {
   typescript: true,
 });
 

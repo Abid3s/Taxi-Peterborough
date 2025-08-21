@@ -6,18 +6,20 @@ export const quoteFormSchema = z.object({
     .string()
     .min(3, { message: "Please enter a valid postcode." })
     .max(8, { message: "Please enter a valid postcode." }),
-  airport: z.string({ required_error: "Please select an airport." }),
+  airport: z.string().min(1, { message: "Please select an airport." }),
   // terminal: z.string().optional(), // Will be handled later
-  pickupDate: z.date({
-    required_error: "A pickup date is required.",
+  pickupDate: z.coerce.date({
+    message: "A pickup date is required.",
   }),
-  pickupTime: z.string({
-    required_error: "A pickup time is required.",
-  }).regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, {
-    message: "Please enter a valid time format (HH:MM)."
-  }),
+  pickupTime: z
+    .string({
+      message: "A pickup time is required.",
+    })
+    .regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, {
+      message: "Please enter a valid time format (HH:MM)."
+    }),
   vehicle: z.enum(["saloon", "estate", "mpv", "eight"], {
-    required_error: "Please select a vehicle type.",
+    message: "Please select a vehicle type.",
   }),
   passengers: z.coerce.number().min(1, { message: "At least 1 passenger is required." }),
   bags: z.coerce.number().min(0, { message: "Bags cannot be negative." }),
