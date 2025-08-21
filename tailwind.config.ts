@@ -7,12 +7,22 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: { 
+      center: true, 
+      padding: '1rem', 
+      screens: { 
+        lg: '1120px', 
+        xl: '1200px' 
+      } 
+    },
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
         'display': ['Manrope Variable', 'system-ui', 'sans-serif'],
       },
       colors: {
+        brand: '#0B1220',
+        accent: '#00BFA5',
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -35,10 +45,6 @@ const config: Config = {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
         },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -53,11 +59,6 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
-        // Brand colors
-        brand: {
-          DEFAULT: "hsl(var(--brand))",
-          muted: "hsl(var(--brand-muted))",
-        },
         ink: "hsl(var(--ink))",
       },
       borderRadius: {
@@ -68,7 +69,8 @@ const config: Config = {
         'full': '9999px',
       },
       boxShadow: {
-        'brand': '0 10px 30px rgba(2, 6, 23, 0.25)',
+        'elevate': '0 10px 30px rgba(2,6,23,0.25)',
+        'soft': '0 2px 12px rgba(2,6,23,0.12)'
       },
       keyframes: {
         "accordion-down": {
