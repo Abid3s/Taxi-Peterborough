@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "@fontsource/inter";
 import "@fontsource-variable/manrope";
-import Header from "@/components/layout/Header";
+import NavBar from "@/components/NavBar";
 import Footer from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { cn } from "@/lib/utils";
 
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
         )}
       >
         <div className="relative flex min-h-dvh flex-col brand-gradient">
-          <Header />
+          <NavBar />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
