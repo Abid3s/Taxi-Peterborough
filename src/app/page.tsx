@@ -1,14 +1,14 @@
-"use client";
+import NavBar from '@/components/NavBar'
+import Hero from '@/components/Hero'
+import QuoteShell from '@/components/QuoteShell'
 
-import * as React from "react";
-import Hero from "@/components/Hero";
-import QuoteShell from "@/components/QuoteShell";
-
-export default function HomePage() {
+export default function Home(){
   return (
-    <div>
+    <>
+      <NavBar />
       <Hero />
       <QuoteShell />
-    </div>
-  );
+      {/* add airport LP teaser, footer */}
+    </>
+  )
 }
