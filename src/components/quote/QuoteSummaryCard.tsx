@@ -55,20 +55,20 @@ export function QuoteSummaryCard({ quote, isLoading }: QuoteSummaryCardProps) {
   }
 
   return (
-    <Card>
+    <Card className="bg-white/95 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle>Your Quote</CardTitle>
+        <CardTitle className="font-display text-ink">Your Quote</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="text-4xl font-bold">
-          {quote ? `£${quote.fare}` : "—"}
+          <span className="font-display text-accent">{quote ? `£${quote.fare}` : "—"}</span>
         </div>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-brand-muted">
           {quote
             ? "This is a fixed fare. No hidden charges."
             : "Complete the form to see your fare."}
         </p>
-        <ul className="list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+        <ul className="list-disc space-y-1 pl-4 text-sm text-brand-muted">
           <li>Flight tracking included</li>
           <li>Professional, licensed driver</li>
           <li>Free cancellation until dispatch</li>
@@ -86,7 +86,7 @@ export function QuoteSummaryCard({ quote, isLoading }: QuoteSummaryCardProps) {
             Secure Checkout
           </Button>
         </Link>
-        <p className="text-xs text-center text-muted-foreground">
+        <p className="text-xs text-center text-brand-muted">
           {quote
             ? "Secure authorisation now; final confirmation once allocated."
             : ""}

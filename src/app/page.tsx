@@ -14,24 +14,24 @@ export default function HomePage() {
   return (
     <div className="container px-4 md:px-6">
       <section className="flex flex-col items-center justify-center space-y-4 py-24 text-center">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+        <h1 className="font-display text-4xl font-bold tracking-tighter text-white sm:text-5xl md:text-6xl lg:text-7xl">
           Airport Taxis from Peterborough – Fixed Fares, 24/7
         </h1>
-        <p className="max-w-[700px] text-muted-foreground md:text-xl">
+        <p className="max-w-[700px] text-white/80 md:text-xl">
           Instant quote. Secure online payment. Heathrow, Gatwick, Luton,
           Stansted, East Midlands & Birmingham.
         </p>
         <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
           <a
             href="#quote-form"
-            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex h-12 items-center justify-center rounded-full bg-accent px-8 text-sm font-medium text-white shadow-brand transition-all hover:bg-accent/90 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:pointer-events-none disabled:opacity-50"
           >
             Get an Instant Quote
           </a>
         </div>
       </section>
 
-      <div className="py-6 text-center text-sm text-muted-foreground">
+      <div className="py-6 text-center text-sm text-white/60">
         <p>
           SCA-secure (Stripe) • Licensed partners • Email/SMS confirmations •
           Local support

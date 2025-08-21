@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Clash Display', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -49,11 +53,22 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        // Brand colors
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          muted: "hsl(var(--brand-muted))",
+        },
+        ink: "hsl(var(--ink))",
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
+        '2xl': '1rem',
+        'full': '9999px',
+      },
+      boxShadow: {
+        'brand': '0 10px 30px rgba(2, 6, 23, 0.25)',
       },
       keyframes: {
         "accordion-down": {
