@@ -13,58 +13,12 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 40% 6%;
-    --card: 0 0% 100%;
-    --card-foreground: 210 40% 6%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 6%;
-    --primary: 177 100% 38%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 210 40% 6%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 177 100% 38%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 177 100% 38%;
-    --radius: 1rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    
-    /* Brand tokens */
-    --brand: 215 65% 9%;
-    --ink: 222 84% 5%;
-    --brand-muted: 215 25% 47%;
+    --bg-gradient: linear-gradient(135deg,#0B1220 0%,#17233A 50%,#0E1B2E 100%);
   }
 
-  .dark {
-    --background: 215 65% 9%;
-    --foreground: 210 40% 98%;
-    --card: 215 65% 9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 215 65% 9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 177 100% 38%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 217 33% 18%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217 33% 18%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 177 100% 38%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 177 100% 38%;
+  html, body {
+    background: var(--bg-gradient);
+    color: #0F172A;
   }
 }
 
@@ -73,19 +27,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Clash Display', 'Inter', system-ui, -apple-system, sans-serif;
-  }
-}
-
-@layer utilities {
-  .brand-gradient {
-    background: linear-gradient(135deg, #0B1220 0%, #17233A 50%, #0E1B2E 100%);
-  }
-  .brand-shadow {
-    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.25);
   }
 }
